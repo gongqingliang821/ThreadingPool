@@ -32,7 +32,7 @@ class Work(threading.Thread):
     def run(self):
         while True:
             try:
-                do, args = self.work_queue.get(block=False)
+                do, args = self.work_queue.get(block=True)
                 do(args)
                 self.work_queue.task_done()
             except:
